@@ -12,6 +12,10 @@ document.body.appendChild(canvas);
 // Refrences
 var gameEngine;
 var isRunning;
+var speed = 5;
+
+var x = canvas.width/2;
+var y = canvas.height/2-30;
 
 document.getElementById("start").addEventListener("click", function() {
     console.log("clicked start button");
@@ -31,8 +35,51 @@ function main() {
      */
 
      // Start Here
-}
+    
 
+    var dx = 2;
+    var dy = -2;
+
+    function drawBall() {
+        if(y >= canvas.height - 25)
+        {
+            //console.log("test");
+            y = canvas.height - 25;
+        }
+
+        y += speed
+
+        if(speed < 5) 
+        {
+            speed += 0.5;
+        }
+
+            
+
+        console.log(speed)
+
+        ctx.beginPath();
+        ctx.arc(x, y, 25, 0, Math.PI*2);
+        ctx.fillStyle = "red";
+        ctx.fill();
+        ctx.closePath();
+    }
+    
+    // function draw() {
+    //     ctx.clearRect(0, 0, canvas.width, canvas.height);
+    //     drawBall();
+    //     // x += dx;
+    //     y += dy;
+    // }
+
+
+    drawBall();
+
+
+    // console.log('tick')
+
+    // setInterval(draw, 10);
+}
 // Game Engine
 function tick() {
     canvas.width = canvas.width;
@@ -54,3 +101,17 @@ function restartGame() {
 
     startGame();
 }
+
+
+
+
+
+
+
+
+document.addEventListener('keydown', function(e) {
+    if (e.code === 'Space') {
+        speed = -10;
+        // console.log('hello reilly')
+    }
+});
