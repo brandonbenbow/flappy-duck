@@ -1,0 +1,12 @@
+html {
+    background-color: black;
+}
+
+input {
+    padding: 10px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0 0 0px 3px white;
+}
